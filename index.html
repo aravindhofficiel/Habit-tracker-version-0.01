@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">Habit Tracker</h1>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-value" id="totalHabits">0</span>
+                    <span class="stat-label">Habits</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="todayCompleted">0</span>
+                    <span class="stat-label">Today</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="add-habit-section">
+                <button class="add-habit-btn" id="addHabitBtn">
+                    <span class="plus-icon">+</span>
+                    Add New Habit
+                </button>
+            </section>
+
+            <section class="habits-grid" id="habitsGrid">
+                <!-- Habits will be dynamically added here -->
+            </section>
+
+            <section class="stats-section">
+                <h2>Your Progress</h2>
+                <div class="progress-cards">
+                    <div class="progress-card">
+                        <div class="progress-icon">🔥</div>
+                        <div class="progress-info">
+                            <div class="progress-title">Current Streak</div>
+                            <div class="progress-value" id="currentStreak">0 days</div>
+                        </div>
+                    </div>
+                    <div class="progress-card">
+                        <div class="progress-icon">⭐</div>
+                        <div class="progress-info">
+                            <div class="progress-title">Best Streak</div>
+                            <div class="progress-value" id="bestStreak">0 days</div>
+                        </div>
+                    </div>
+                    <div class="progress-card">
+                        <div class="progress-icon">📅</div>
+                        <div class="progress-info">
+                            <div class="progress-title">This Week</div>
+                            <div class="progress-value" id="weekCompletion">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for adding new habit -->
+    <div class="modal" id="habitModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Habit</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form class="habit-form" id="habitForm">
+                <div class="form-group">
+                    <label for="habitName">Habit Name</label>
+                    <input type="text" id="habitName" placeholder="e.g., Drink 8 glasses of water" required>
+                </div>
+                <div class="form-group">
+                    <label for="habitCategory">Category</label>
+                    <select id="habitCategory">
+                        <option value="health">🏃 Health</option>
+                        <option value="productivity">💼 Productivity</option>
+                        <option value="learning">📚 Learning</option>
+                        <option value="wellness">🧘 Wellness</option>
+                        <option value="other">📌 Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="habitFrequency">Frequency</label>
+                    <select id="habitFrequency">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="habitGoal">Daily Goal</label>
+                    <input type="number" id="habitGoal" placeholder="e.g., 8" min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="habitColor">Color Theme</label>
+                    <div class="color-options">
+                        <div class="color-option" data-color="#6366f1" style="background: #6366f1"></div>
+                        <div class="color-option" data-color="#8b5cf6" style="background: #8b5cf6"></div>
+                        <div class="color-option" data-color="#ec4899" style="background: #ec4899"></div>
+                        <div class="color-option" data-color="#f59e0b" style="background: #f59e0b"></div>
+                        <div class="color-option" data-color="#10b981" style="background: #10b981"></div>
+                        <div class="color-option" data-color="#3b82f6" style="background: #3b82f6"></div>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Create Habit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
